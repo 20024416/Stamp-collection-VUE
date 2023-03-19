@@ -1,17 +1,5 @@
-<script>
-export default {
-  name: 'StampTable',
-  props: {
-    stamps: {
-      type: Array,
-      required: true
-    }
-  }
-};
-</script>
-
 <template>
- <table>
+  <table>
     <thead>
       <tr>
         <th>Name</th>
@@ -25,11 +13,20 @@ export default {
         <td>{{ stamp.name }}</td>
         <td>{{ stamp.value }}</td>
         <td>{{ stamp.color }}</td>
-        <td><img :src="`/images/${stamp.image}`" alt="Stamp Image"></td>
+        <td><img :src="`${stamp.image}`" alt="Stamp Image"></td>
       </tr>
     </tbody>
   </table>
 </template>
 
-
-
+<script>
+export default {
+  name: 'StampTable',
+  props: {
+    stamps: {
+      type: Array,
+      required: true
+    }
+  }
+};
+</script>

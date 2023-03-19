@@ -1,18 +1,27 @@
+<template>
+  <div id="app">
+    <div id="container">
+      <h1>My Stamp Collection</h1>
+      <Pagination :total-pages="totalPages" :current-page="currentPage" @change-page="changePage"></Pagination>
+      <StampTable :stamps="stampsToDisplay"></StampTable>
+    </div>
+  </div>
+</template>
+
 <script>
 import StampTable from '../components/StampTable.vue';
 import Pagination from '../components/Pagination.vue';
-import { getStamps } from '../../stampArray';
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    StampTable,    
-        Pagination
+    StampTable,
+    Pagination
   },
-
   data() {
     return {
-      stamps: getStamps(),
+      stamps: [],
       itemsPerPage: 5,
       currentPage: 1
     }
@@ -31,19 +40,19 @@ export default {
     changePage(page) {
       this.currentPage = page;
     }
+  },
+  created() {
+    axios.get('https://my-json-server.typicode.com/20024416/dbStamps/stamps')
+      .then(response => {
+        this.stamps = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>
 
-<template>
-  <div id="app">
-    <div id="container">
-    <h1>My Stamp Collection</h1>
-    <Pagination :total-pages="totalPages" :current-page="currentPage" @change-page="changePage"></Pagination>
-    <StampTable :stamps="stampsToDisplay"></StampTable>
-  </div>
-</div>
-</template>
 
 <style>
 body {
