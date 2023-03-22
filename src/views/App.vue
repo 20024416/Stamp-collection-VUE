@@ -53,7 +53,6 @@ export default {
 };
 </script>
 
-
 <style>
 body {
   margin: 0;
@@ -78,8 +77,8 @@ h1 {
 table {
 
   width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 th,
@@ -108,4 +107,5 @@ button {
 
 button:hover {
   background-color: #0062cc;
-}</style>
+}
+</style>

@@ -1,3 +1,12 @@
+<template>
+  <div class="pagination">
+    <button :disabled="currentPage === 1" @click="prevPage">Prev</button>
+    <span>{{ currentPage }} / {{ totalPages }}</span>
+    <button :disabled="currentPage === totalPages" @click="nextPage">Next</button>
+  </div>
+</template>
+
+
 <script>
 export default {
   name: 'Pagination',
@@ -25,14 +34,6 @@ export default {
   }
 };
 </script>
-
-<template>
-  <div class="pagination">
-    <button :disabled="currentPage === 1" @click="prevPage">Prev</button>
-    <span>{{ currentPage }} / {{ totalPages }}</span>
-    <button :disabled="currentPage === totalPages" @click="nextPage">Next</button>
-  </div>
-</template>
 
 <style>
 .pagination {
