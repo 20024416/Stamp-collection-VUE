@@ -42,7 +42,7 @@ export default {
     }
   },
   created() {
-    axios.get('https://my-json-server.typicode.com/20024416/dbStamps/stamps')
+    axios.get('http://localhost:3001/stamps')
       .then(response => {
         this.stamps = response.data;
       })
