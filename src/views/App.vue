@@ -42,7 +42,7 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:3001/stamps')
+    axios.get('https://stampapp.azurewebsites.net/stamps')
       .then(response => {
         this.stamps = response.data;
       })
