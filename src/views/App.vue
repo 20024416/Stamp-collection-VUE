@@ -42,7 +42,9 @@ export default {
     }
   },
   created() {
-    axios.get('https://stampapp.azurewebsites.net:3001/stamps')
+    // axios.get('https://stampapp.azurewebsites.net:3001/stamps')
+    // axios.get('http://localhost:3001/stamps')
+    axios.get('https://my-json-server.typicode.com/20024416/dbStamps/stamps')
       .then(response => {
         this.stamps = response.data;
       })
